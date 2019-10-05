@@ -21,10 +21,10 @@ bottoken="BOTTOKEN"
 while true; do
     deadcontainer="$(docker service ls --format {{.Name}}:{{.Replicas}} | grep '0/1' | cut -d' ' -f1)"
     if [ "$deadcontainer" == "" ]; then
-        echo "Alle Container laufen!"
+        echo "All container are running!"
         sleep "$check_time"
     else
-        echo "Mindestens ein Container ist tot!"
+        echo "Atleast one container is dead!"
         telegram_msg=""
         for i in $deadcontainer; do
             echo $i
