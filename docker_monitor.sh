@@ -8,10 +8,11 @@
 # Letzte Anpassung: 2019/08/23
 
 
-#Variablen
-USER1= CHAT ID
+#Variables
+USER1=CHAT ID
+USER2=CHAT IT
 
-telegram_id=("$USER1")
+telegram_id=("$USER1 $USER2")
 hostname="$(cat /etc/hostname)"
 check_time="120" #seconds between checks
 bottoken="BOTTOKEN"
@@ -24,7 +25,7 @@ while true; do
         echo "All container are running!"
         sleep "$check_time"
     else
-        echo "Atleast one container is dead!"
+        echo "At least one container is dead!"
         telegram_msg=""
         for i in $deadcontainer; do
             echo $i
